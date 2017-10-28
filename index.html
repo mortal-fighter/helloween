@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Тыква</title>
+    <meta charset="utf-8">
+    <style type="text/css">
+        body {
+            background: #fff;
+        }
+        .pumpkin {
+            width: 500px;
+            height: 400px;
+            position: relative;
+            margin: 150px auto;
+        }
+        .oval-big {
+            width: 220px;
+            height: 340px;
+            border-radius: 220px/340px;
+        }
+        .oval-medium {
+            width: 230px;
+            height: 320px;
+            border-radius: 230px/320px;
+            z-index: -1;
+            position: absolute;
+        }
+        .oval-small {
+            width: 250px;
+            height: 300px;
+            border-radius: 250px/300px;
+            z-index: -2;
+            position: absolute;
+        }
+        .pumpkin-bg {
+            background-color: #CA5F27;
+            border: 2px solid #F0B162;
+            background: linear-gradient(to bottom, #F2AF60 0%, #912219 50%, #842917 75%, #D06014 100%);
+            box-shadow: 0 0 1px 1px;
+        }
+        .oval-1 {
+            margin: 120px auto;
+        }
+        .oval-2 {
+            top: 10px;
+            left: 70px;
+        }
+        .oval-3 {
+            top: 10px;
+            left: 190px;
+        }
+        .oval-4 {
+            top: 20px;
+            left: 20px;
+        }
+        .oval-5 {
+            top: 20px;
+            left: 220px;
+        }
+        .stalk {
+            width: 400px;
+            height: 900px;
+            border-radius: 400px/900px;
+            background-color: #467D2C;
+            background: linear-gradient(to bottom right, #95D171 14%, #356B1F 24%);
+            position: absolute;
+            z-index: -4;
+            top: -100px;
+            left: 150px;
+            border: 1px solid black;
+        }
+        /*вырезает стебель*/
+        .stalk:before {
+            content: '';
+            position: absolute;
+            z-index: -3;
+            background-color: #fff;
+            top: -10px;
+            width: 250px;
+            height: 250px;
+            border-radius: 500px;
+            left: 140px;
+            border: 1px solid black;
+        }
+        /* подчищает лишнее*/
+        .eraser {
+            position: absolute;
+            z-index: -3;
+            background-color: #fff;
+            top: 90px;
+            width: 700px;
+            height: 1000px;
+            left: 0px;
+        }
+        .eraser:before {
+            position: absolute;
+            z-index: -3;
+            background-color: #fff;
+            top: -200px;
+            width: 200px;
+            height: 200px;
+            left: 368px;
+            content: "";
+        }
+        .eye-right {
+            position: absolute;
+            top: 100px;
+            left: 318px;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            -webkit-transform: rotate(-30deg);
+            -ms-transform: rotate(-30deg);
+            -moz-transform: rotate(-30deg);
+            -o-transform: rotate(-30deg);
+            transform: rotate(-30deg);
+            border-top: 1px solid #921E0F;
+        }
+        .eye-right:before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -5px;
+            width: 100px;
+            height: 150px;
+            border-radius: 100px/150px;
+            background-color: #FFF203;
+            border: 5px solid #E17916;
+            border-bottom: 3px solid #E17916;
+            box-shadow: 0 0 1px 1px #921E0F;
+        }
+        .eye-left {
+            position: absolute;
+            top: 100px;
+            left: 70px;
+            width: 100px;
+            height: 100px;
+            overflow: hidden;
+            -webkit-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            -moz-transform: rotate(30deg);
+            -o-transform: rotate(30deg);
+            transform: rotate(30deg);
+            border-top: 1px solid #921E0F;
+        }
+        .eye-left:before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: -6px;
+            width: 100px;
+            height: 150px;
+            border-radius: 100px/150px;
+            background-color: #FFF203;
+            border: 5px solid #E17916;
+            border-bottom: 3px solid #E17916;
+            box-shadow: 0 0 1px 1px #921E0F;
+        }
+        .mouth-outer {
+            width: 300px;
+            height: 200px;
+            position: absolute;
+            overflow: hidden;
+            left: 100px;
+            top: 220px;
+            border-top: 1px solid #921E0F;
+        }
+        .mouth-inner {
+            position: absolute;
+            top: -740px;
+            left: -110px;
+            width: 500px;
+            height: 800px;
+            border-radius: 500px/800px;
+            background-color: #FFF203;
+            border: 10px solid #E17916;
+            border-bottom: 3px solid #E17916;
+            box-shadow: 0 0 1px 1px #921E0F;
+        }
+        .tooth1 {
+            position: absolute;
+            top: 221px;
+            left: 170px;
+            width: 25px;
+            height: 25px;
+            background-color: #8A2618;
+        }
+        .tooth1:before {
+            content: '';
+            background-color: #EC8E1D;
+            height: 23px;
+            width: 5px;
+            position: absolute;
+            left: 25px;
+        }
+        .tooth2 {
+            position: absolute;
+            top: 245px;
+            left: 281px;
+            width: 40px;
+            height: 40px;
+            background-color: #A03D15;
+            -webkit-transform: rotate(-19deg);
+            -ms-transform: rotate(-19deg);
+            -moz-transform: rotate(-19deg);
+            -o-transform: rotate(-19deg);
+            border: 1px solid #8A2618;
+            box-shadow: 0 4px 2px -1px #A03D15;
+            border-bottom: none;
+        }
+        .tooth2:before {
+            content: '';
+            background-color: #EC8E1D;
+            height: 38px;
+            width: 5px;
+            position: absolute;
+            top: -1px;
+            left: 41px;
+        }
+        .title {
+		    font: bold 20px Arial, sans-serif;
+		    color: black;
+		    text-align: center;
+		    position: absolute;
+		    left: 75px;
+		    bottom: 0;
+		}
+    </style>
+</head>
+<body>
+    <div class="pumpkin">
+        <div class="oval-1 oval-big pumpkin-bg"></div>
+        <div class="oval-2 oval-medium pumpkin-bg"></div>
+        <div class="oval-3 oval-medium pumpkin-bg"></div>
+        <div class="oval-4 oval-small pumpkin-bg"></div>
+        <div class="oval-5 oval-small pumpkin-bg"></div>
+        <div class="stalk"></div>
+        <div class="eye-right"> </div>
+        <div class="eye-left"> </div>
+        <div class="mouth-outer">
+            <div class="mouth-inner"></div>
+        </div>
+        <div class="tooth1"></div>
+        <div class="tooth2"></div>
+        <div class="eraser"></div>
+        <div class="title">Я - Тыква! И я против Хэллоуина!</div>
+    </div>
+</body>
+</html>
